@@ -294,6 +294,30 @@ public class Question {
         }
     }
 
+    // leetcode 785
+    static boolean Bipartite(int arr[][], int src, int color[]){
+        int n = arr.length;
+
+        Queue<Integer> q = new LinkedList<>();
+        q.add(src);
+        color[src] = 0;
+
+        while(q.size()!=0){
+            int a = q.remove();
+            int col = color[a];
+
+            for(var x : arr[a]){
+                if(color[x]==-1){
+                    color[x] = (col==1) ? 0 : 1;
+                    q.add(x);
+                }else{
+                    if(color[x]==col) return false;
+                }
+            }
+        }
+        return true;
+    }
+
 
 
     public static void main(String[] args) {
