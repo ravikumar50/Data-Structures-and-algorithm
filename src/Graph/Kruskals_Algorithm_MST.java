@@ -48,10 +48,7 @@ public class Kruskals_Algorithm_MST {
 
         int v = sc.nextInt();
         int e = sc.nextInt();
-
-
-
-        int[][] edge = new int[e][3];
+        int edge[][] = new int[e][3];
         par = new int[v];
         rank = new int[v];
 

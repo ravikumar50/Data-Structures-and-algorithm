@@ -54,7 +54,6 @@ public class Prims_Algorithm {
 
         int n = sc.nextInt();
         int m = sc.nextInt();
-
         graph = new ArrayList[n];
 
         for (int i = 0; i < n; i++) {
