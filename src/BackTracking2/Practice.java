@@ -28,14 +28,6 @@ public class Practice {
         Scanner sc = new Scanner(System.in);
         int t = sc.nextInt();
 
-        while (t > 0) {
-            hp = new HashSet<>();
-            long n = sc.nextLong();
-            dp = new int[n+2][n+2];
-            for (var a : dp) Arrays.fill(a, -1);
-            long ans = helper(1, n, new ArrayList<>());
-            System.out.println(hp.size());
-            t--;
-        }
+
     }
 }
