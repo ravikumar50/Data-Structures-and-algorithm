@@ -98,7 +98,7 @@ public class MaximumNumberOfKnigth {
         }
 
 
-
+        // there might be a case where we don't want to put the knight whether it is safe or not
         if (col == n - 1) maxKnigth(board, row + 1, 0,num);
         else  maxKnigth(board, row, col + 1,num);
         return;

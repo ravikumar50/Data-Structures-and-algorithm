@@ -45,6 +45,7 @@ public class Suduko {
                 }
                 System.out.println();
             }
+            System.out.println();
 
             check=1;
             return;
@@ -72,7 +73,7 @@ public class Suduko {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        int arr[][] = {{5,3,3,0,7,0,0,0,0},
+        int arr[][] = {{5,3,0,0,7,0,0,0,0},
                 {6,0,0,1,9,5,0,0,0},
                 {0,9,8,0,0,0,0,6,0},
                 {8,0,0,0,6,0,0,0,3},
