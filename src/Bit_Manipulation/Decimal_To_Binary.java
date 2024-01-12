@@ -18,6 +18,11 @@ public class Decimal_To_Binary {
 
     // left shift means multiplication by 2
     // right shift means division by 2
+
+    /*
+    a>>b = a/2^b
+    a<<b = a*2^b
+     */
     public static void main(String[] args) {
         int n = 8;
         String ans = helper(n);

@@ -1,0 +1,10 @@
+1. If there are two consecutive numbers lets say x and x-1, and let us consider the postision
+   of the last set bit of x. Now before this position all the bits of x and x-1 will be same and from
+   this position to the last all the bits in these numbers will be different
+
+   Now when we will take &(and) between these number that is x and x-1 then the bits which are same
+   while be there but all the different bits will become 0. This will eleminate the last set bit of x.
+   Now let us consider the new number as 'a' which comes from x & x-1
+   Now take a & a-1 , this will eleminate last set bit of a.
+   Now do this process untill the number becomes 0, this will give you the number of set bits
+   in the number x.
