@@ -8,3 +8,5 @@
    Now take a & a-1 , this will eleminate last set bit of a.
    Now do this process untill the number becomes 0, this will give you the number of set bits
    in the number x.
+
+2. If there are two number lets say x and y and x is greater than y then x&y is always less than x

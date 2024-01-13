@@ -106,9 +106,38 @@ public class Question {
     }
 
 
+    static int lengthOfMaximumSubArrayWhoseAndIsMaximun(int arr[]){
+
+        // See interesting facts 2
+        int n = arr.length;
+        int ans = 0;
+        int count = 0;
+        int max = Integer.MIN_VALUE;
+
+        for(int j=0; j<n; j++) {
+            if (arr[j] > max) {
+                max = arr[j];
+            }
+        }
+
+        int i=0,j=0;
+        while(j<n){
+            if(arr[j]==max){
+                count = j-i+1;
+            }else{
+                i=j+1;
+                count = 1;
+            }
+            j++;
+            ans = Math.max(ans,count);
+        }
+        return ans;
+    }
+
+
     public static void main(String[] args) {
-        int n = 5;
-        int ans = minimum_number_of_bit_flips_to_convert_one_number_to_another(23,31);
+        int arr[] = {1,2,3,3,3,1,2,3,3};
+        int ans = lengthOfMaximumSubArrayWhoseAndIsMaximun(arr);
         System.out.println(ans);
     }
 }
