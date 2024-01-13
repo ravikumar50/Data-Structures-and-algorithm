@@ -83,6 +83,29 @@ public class Question {
         }
         return ans;
     }
+
+    static int[] singleNumber3(int arr[]){
+        int n = arr.length;
+        int ans = 0;
+        for(int i=0; i<n; i++) ans = ans^arr[i];
+
+        int temp = ans;
+        int k = 0;   // finding the last set bits of ans;
+        while(true){
+            if((temp&1)==1) break;
+            k++;
+            temp = temp>>1;  // dividing by 2
+        }
+        int a = 0;
+        // taking the xor with those number which has kth bit as set bit
+        for(int i=0; i<n; i++){
+            if(((arr[i]>>k) & 1)==1) a = a^arr[i];
+        }
+        int b = ans^a; // finding the second number
+        return new int[]{a,b};
+    }
+
+
     public static void main(String[] args) {
         int n = 5;
         int ans = minimum_number_of_bit_flips_to_convert_one_number_to_another(23,31);
