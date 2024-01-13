@@ -72,16 +72,20 @@ public class Question {
         // this will give the answer
 
         int x = a^b;
+        return number_of_set_bits(x);
+    }
+
+    static int singleNumber(int arr[]){  // leetcode 136
         int ans = 0;
-        while(x!=0){
-            x = x & (x-1);
-            ans++;
+        int n = arr.length;
+        for(int i=0; i<n; i++){
+            ans = ans^arr[i];
         }
         return ans;
     }
     public static void main(String[] args) {
         int n = 5;
-        int ans = minimum_number_of_bit_flips_to_convert_one_number_to_another(23,32);
+        int ans = minimum_number_of_bit_flips_to_convert_one_number_to_another(23,31);
         System.out.println(ans);
     }
 }
