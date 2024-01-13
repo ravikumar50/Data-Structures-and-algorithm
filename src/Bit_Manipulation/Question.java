@@ -84,7 +84,7 @@ public class Question {
         return ans;
     }
 
-    static int[] singleNumber3(int arr[]){
+    static int[] singleNumber3(int arr[]){  // leetcode 260
         int n = arr.length;
         int ans = 0;
         for(int i=0; i<n; i++) ans = ans^arr[i];
