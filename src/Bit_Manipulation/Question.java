@@ -64,9 +64,24 @@ public class Question {
 
         return a^n;
     }
+
+    static int minimum_number_of_bit_flips_to_convert_one_number_to_another(int a, int b){
+
+        // One solution can be that just take the xor of both the number and count the number of
+        // occurance of 1 in the resultant number
+        // this will give the answer
+
+        int x = a^b;
+        int ans = 0;
+        while(x!=0){
+            x = x & (x-1);
+            ans++;
+        }
+        return ans;
+    }
     public static void main(String[] args) {
         int n = 5;
-        int ans = fliping_all_the_bits(n);
+        int ans = minimum_number_of_bit_flips_to_convert_one_number_to_another(23,32);
         System.out.println(ans);
     }
 }
