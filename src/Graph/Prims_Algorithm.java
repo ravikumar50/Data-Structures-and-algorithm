@@ -24,7 +24,7 @@ public class Prims_Algorithm {
        on the basis of their weight
     2. Push the source node with weight = 0 in the priority queue.
     3. Also create an 'ans' array that will contain the minimum weight of each node
-       and initialise that array with maximum value except the source node and give source node value as -1
+       and initialise that array with maximum value except the source node and give source node value as 0
     4. Also take a visited array and mark source as visited at the begining.
     5. Now remove the element from the PriorityQueue and compare the weight of that node from the
        node in the ans array , if the weight is less that the node in the ans array

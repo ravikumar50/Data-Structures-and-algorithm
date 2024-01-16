@@ -1,9 +1,6 @@
 package Stacks;
 
-import java.util.Deque;
-import java.util.LinkedList;
-import java.util.Scanner;
-import java.util.Stack;
+import java.util.*;
 
 public class CelebrityProblem {
 
@@ -87,18 +84,6 @@ public class CelebrityProblem {
         return ans;
     }
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
- //       int n = sc.nextInt();
-
-
-        int arr[] = {1 ,2, 3, 1 ,4 ,5 ,2, 3, 6};
-
-        int ans[] = maximumSlidingWindow2(arr,3);
-
-        for(int i=0; i<ans.length; i++){
-            System.out.print(ans[i]+" ");
-        }
 
     }
 }
