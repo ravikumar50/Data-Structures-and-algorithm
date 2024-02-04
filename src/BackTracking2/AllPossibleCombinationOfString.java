@@ -1,6 +1,7 @@
 package BackTracking2;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 
 public class AllPossibleCombinationOfString {
@@ -77,8 +78,34 @@ public class AllPossibleCombinationOfString {
         s.setCharAt(j,ch);
     }
 
+    static ArrayList<ArrayList<Integer>> ans;
+
+    static void swap(ArrayList<Integer> arr, int i, int j){
+        int a = arr.get(i);
+        arr.set(i,arr.get(j));
+        arr.set(j,a);
+    }
+
+    static void helper(ArrayList<Integer> arr, int idx){
+
+        if(idx==arr.size()-1) {
+            ans.add(new ArrayList<>(arr));
+            return;
+        }
+
+        HashSet<Integer> hp = new HashSet<>();
+        for(int i=idx; i<arr.size(); i++){
+            if(hp.contains(arr.get(i))) continue;
+            hp.add(arr.get(i));
+            swap(arr,i,idx);
+            helper(arr,idx+1);
+            swap(arr,i,idx);
+        }
+    }
+
     public static void main(String[] args) {
-        StringBuilder s = new StringBuilder("aba");
-        helper4(s,0);
+
+        ans = new ArrayList<>();
+
     }
 }
