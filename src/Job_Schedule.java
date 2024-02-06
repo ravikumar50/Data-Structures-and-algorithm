@@ -4,15 +4,16 @@ import java.util.*;
 public class Job_Schedule {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the number of Jobs to be done");
         int n = sc.nextInt();
         int maxLength = -1;
 
         ArrayList<int[]> jobs = new ArrayList<>();
+        System.out.println("Enter the deadline and profit of "+n+" Jobs");
         for(int i=0; i<n; i++){
-            int id = sc.nextInt();
             int deadline = sc.nextInt();
             int profit = sc.nextInt();
-            jobs.add(new int[]{id,deadline,profit});
+            jobs.add(new int[]{i,deadline,profit});
             maxLength = Math.max(deadline,maxLength);
         }
 
@@ -35,19 +36,26 @@ public class Job_Schedule {
                 deadline--;
             }
         }
+
         System.out.println(ans);
         System.out.println(profit);
     }
 }
 
 /*
-0 7 15
-1 2 20
-2 5 30
-3 3 18
-4 4 18
-5 5 10
-6 2 23
-7 7 16
-8 3 25
+
+n = 9
+
+7 15
+2 20
+5 30
+3 18
+4 18
+5 10
+2 23
+7 16
+3 25
+
+profit = 147
+ans = [2,8,6,1,4,7,0]
  */
