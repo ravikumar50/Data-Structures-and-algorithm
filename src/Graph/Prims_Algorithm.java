@@ -52,7 +52,9 @@ public class Prims_Algorithm {
     public static void main(String args[]) {
         Scanner sc = new Scanner(System.in);
 
+        System.out.println("Enter the number of Nodes");
         int n = sc.nextInt();
+        System.out.println("Enter the number of Edges");
         int m = sc.nextInt();
         graph = new ArrayList[n];
 
@@ -60,15 +62,19 @@ public class Prims_Algorithm {
             graph[i] = new ArrayList<>();
         }
 
+        System.out.println("Enter edges along with their weight");
+
         for (int i = 0; i < m; i++) {
             int a = sc.nextInt();
             int b = sc.nextInt();
             int c = sc.nextInt();
-            addEdge(a - 1, b - 1, c);
+            addEdge(a, b, c);
         }
 
+        System.out.println("Enter the source node");
+
         int start = sc.nextInt();
-        start = start-1;
+        start = start;
 
         int visited[] = new int[n];
         int ans[] = new int[n];

@@ -46,8 +46,8 @@ public class Dijkstra_Algorithm {
 
     public static void main(String[] args) {
        // int edge[][] = {{0,1,1},{0,2,5},{1,2,4},{1,3,1},{2,4,1},{3,4,1},{3,6,2},{4,5,5},{6,5,1}};
-        int edge[][] = {{0,1,7},{0,2,2},{1,3,2},{2,3,1},{2,4,2},{4,5,5},{5,6,1},{4,6,3}};
-        int v = 7;
+        int edge[][] = {{0,1,1},{0,2,5},{1,2,13}};
+        int v = 3;
         int e = edge.length;
 
         graph = new ArrayList[v];
