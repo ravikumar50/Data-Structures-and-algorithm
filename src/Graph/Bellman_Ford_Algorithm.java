@@ -1,5 +1,6 @@
 package Graph;
 
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -43,17 +44,13 @@ public class Bellman_Ford_Algorithm {
         ans[0] = 0;
 
         for(int i=1; i<n; i++){
-            int newAns[] = Arrays.copyOf(ans,ans.length);
 
             for(int j=0; j<m; j++){
                 int a[] = edge[j];
-                if(ans[a[0]]+a[2]<newAns[a[1]]){
-                    newAns[a[1]] = ans[a[0]]+a[2];
+                if(ans[a[0]]+a[2]<ans[a[1]]){
+                    ans[a[1]] = ans[a[0]]+a[2];
                 }
             }
-
-            ans = newAns;
-
         }
 
         boolean flag = false;
@@ -89,6 +86,7 @@ public class Bellman_Ford_Algorithm {
     }
 
 }
+
 /*
 
 number of nodes = 7

@@ -1,12 +1,10 @@
 
-import java.util.*;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
-// use this algorithm when the number of vertexes is more than the number of edges in the graph
-public class Main{
-
-
+public class Main {
 
 
     static ArrayList<int[]> graph[];
@@ -45,17 +43,13 @@ public class Main{
         ans[0] = 0;
 
         for(int i=1; i<n; i++){
-            int newAns[] = Arrays.copyOf(ans,ans.length);
 
             for(int j=0; j<m; j++){
                 int a[] = edge[j];
-                if(ans[a[0]]+a[2]<newAns[a[1]]){
-                    newAns[a[1]] = ans[a[0]]+a[2];
+                if(ans[a[0]]+a[2]<ans[a[1]]){
+                    ans[a[1]] = ans[a[0]]+a[2];
                 }
             }
-
-            ans = newAns;
-
         }
 
         boolean flag = false;
@@ -66,7 +60,7 @@ public class Main{
 
         for(int j=0; j<m; j++){
             int a[] = edge[j];
-            if(ans[a[0]]+a[2]<ans[a[1]]){
+            if(ans[a[0]]+a[2]<newAns[a[1]]){
                 newAns[a[1]] = ans[a[0]]+a[2];
             }
         }
@@ -89,8 +83,15 @@ public class Main{
             }
         }
     }
+
 }
 /*
+
+number of nodes = 7
+number of edges = 10
+
+Edges along with their weight
+
 0 1 6
 0 2 5
 0 3 5
@@ -101,4 +102,7 @@ public class Main{
 3 5 -1
 4 6 3
 5 6 3
+
+minimum distance from source
+0 1 3 5 0 4 3
  */
