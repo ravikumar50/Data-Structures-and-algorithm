@@ -40,7 +40,7 @@ public class Bellman_Ford_Algorithm {
         }
 
         int ans[] = new int[n];
-        Arrays.fill(ans,100000);
+        Arrays.fill(ans,10000000);
         ans[0] = 0;
 
         for(int i=1; i<n; i++){
