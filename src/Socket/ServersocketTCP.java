@@ -10,8 +10,10 @@ public class ServersocketTCP {
 
         System.out.println("Server has started");
         ServerSocket ss = new ServerSocket(8888);
+        String str = "";
 
         while(true) {
+
             System.out.println("Server is waiting to connect with client");
             Socket cs = ss.accept();
             System.out.println("Client Connected");
@@ -20,7 +22,11 @@ public class ServersocketTCP {
             DataOutputStream ssOutput = new DataOutputStream(cs.getOutputStream());
 
             ArrayList<String> arr = new ArrayList<>();
-            String str = ssInput.readUTF();
+            str = ssInput.readUTF();
+            if(str.equals("Stop")){
+                System.out.println("Disconnected");
+                return;
+            }
 
             for(int i=0; i<str.length(); i++){
                 if((str.charAt(i)<48 || str.charAt(i)>57) && (str.charAt(i+1)<48 || str.charAt(i+1)>57)){
