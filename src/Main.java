@@ -48,8 +48,9 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        int arr[][] = {{1,2},{1,3},{3,6},{3,5},{3,4}};
+        int arr[] = {1,4,2,8,6,4,9,3};
         int n = arr.length;
-        System.out.println(maximumFriends(n,arr));
+
+
     }
 }

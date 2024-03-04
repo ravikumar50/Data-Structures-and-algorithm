@@ -48,6 +48,7 @@ public class SS {
                 System.out.println("Disconnected");
                 break;
             }
+            cs.close();
         }
     }
 }

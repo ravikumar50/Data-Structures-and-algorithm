@@ -63,7 +63,6 @@ public class CS {
                 System.out.println("Disconnected");
                 break;
             }
-            System.out.println();
         }
     }
 }
