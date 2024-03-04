@@ -36,6 +36,8 @@ public class Travelling_Salesman_Problem {
         return c;
     }
 
+
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int cost[][] = {{0,10,15,20},
