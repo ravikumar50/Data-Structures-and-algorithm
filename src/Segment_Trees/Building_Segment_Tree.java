@@ -64,7 +64,8 @@ public class Building_Segment_Tree {
         Scanner sc = new Scanner(System.in);
         int arr[] = {1,4,2,8,6,4,9,3};
         int n = arr.length;
-        ans = new int[2*n-1];      // actual size will be 2*n-1 but you should use 4*n for safer side
+        int x = (int)Math.pow(2,(int)Math.ceil(Math.log(2*n)/Math.log(2)))-1;
+        ans = new int[x];      // actual size will be x but you should use 4*n for safer side
         building_tree_min(arr,0,n-1,0);
 
 
