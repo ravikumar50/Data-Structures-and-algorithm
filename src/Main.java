@@ -1,56 +1,58 @@
 import java.util.*;
 public class Main {
 
-    static int par[];
-    static int size[];
-    static int rank[];
 
-    static int find(int a){
-        if(par[a]==a) return a;
-        else return par[a] = find(par[a]);
-    }
+    static HashMap<Integer,Integer> ans[];
+    static int n;
+    static int arr[];
+    static void build_Tree(int l, int r, int idx){
+        if(l==r){
+            ans[idx].put(arr[l],1);
+            return;
+        }
 
-    static void union(int a, int b){
-        a = find(a);
-        b = find(b);
-        if(a==b)  return; // Both a and b are in the same set
-        if(rank[a]>= rank[b]){
-            par[b] = a;
-            rank[a]++;
-            size[a]+=size[b];
-
-        }else{
-            par[a] = b;
-            rank[b]++;
-            size[b]+=size[a];
+        int mid = l+(r-l)/2;
+        build_Tree(l,mid,2*idx+1);
+        build_Tree(mid+1,r,2*idx+2);
+        for(int i=l; i<=r; i++){
+            int a = arr[i];
+            int f1 = ans[2*idx+1].getOrDefault(a,0);
+            int f2 = ans[2*idx+2].getOrDefault(a,0);
+            ans[idx].put(a,f1+f2);
         }
     }
-    public static ArrayList<Integer> maximumFriends(int n, int[][] arr) {
-        // code here
 
-        par = new int[n+10];
-        size = new int[n+10];
-        rank = new int[n+10];
-        for(int i=0; i<n+10; i++) par[i] = i;
-        for(int i=0; i<n+10; i++) size[i] = 1;
-        ArrayList<Integer> ans = new ArrayList<>();
-        int max = 1;
-        for(int i=0; i<n; i++){
-            int a = arr[i][0];
-            int b = arr[i][1];
-            if(find(a)!=find(b)){
-                union(a,b);
-            }
-            max = Math.max(max,Math.max(size[par[a]],size[par[b]]));
-            ans.add(max-1);
+    static HashMap<Integer,Integer> freq_query(int low, int high, int l, int r, int idx){
+        if(r<low || l>high) return new HashMap<>();
+        if(low>=l && high<=r) return ans[idx];
+
+        int mid = low+(high-low)/2;
+        HashMap<Integer,Integer> hp1 = freq_query(low,mid,l,r,2*idx+1);
+        HashMap<Integer,Integer> hp2 = freq_query(mid+1,high,l,r,2*idx+2);
+        HashMap<Integer,Integer> hp = new HashMap<>();
+        for(int i=low; i<=high; i++){
+            int a = arr[i];
+            int f1 = hp1.getOrDefault(a,0);
+            int f2 = hp2.getOrDefault(a,0);
+            hp.put(a,f1+f2);
         }
-        return ans;
+        return hp;
+    }
+    static int query(int left, int right, int value) {
+        HashMap<Integer,Integer> hp = freq_query(0,n-1,left,right,0);
+        return hp.get(value);
     }
 
     public static void main(String[] args) {
-        int arr[] = {1,4,2,8,6,4,9,3};
-        int n = arr.length;
-
-
+        int nums[] = {12,33,4,56,22,2,34,33,22,12,34,56};
+        int n = nums.length;
+        arr = nums;
+        int x = (int)Math.pow(2,(int)Math.ceil(Math.log(2*n)/Math.log(2)))-1;
+        ans = new HashMap[x];
+        for(int i=0; i<x; i++) ans[i] = new HashMap<>();
+        build_Tree(0,n-1,0);
+        System.out.println(ans[0]);
+        ;
+        System.out.println(query(0,2,4));
     }
 }
