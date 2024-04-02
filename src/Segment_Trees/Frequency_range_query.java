@@ -44,6 +44,7 @@ public class Frequency_range_query {
 
     }
 
+
     public static void main(String[] args) {
         int nums[] = {12, 33, 4, 56, 22, 2, 34, 33, 22, 12, 34, 56};
         n = nums.length;

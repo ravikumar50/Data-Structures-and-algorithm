@@ -227,23 +227,10 @@ public class Questions {
 
         Scanner sc = new Scanner(System.in);
 
-//        int n = sc.nextInt();
-//        int arr[] = new int[n];
-//
-//        for(int i=0; i<n; i++){
-//            arr[i]=sc.nextInt();
-//        }
 
-//        int k = sc.nextInt();
+        String s1 = "aabc";
+        String s2 = "abcc";
 
-//        String s1 = "knee";
-//        String s2 = "neek";
-
-        int arr[] = {3,2,2,3};
-        int ans[] = targetTripleSumUsingHashMap(arr,6);
-
-        for(int i=0; i<ans.length; i++){
-            System.out.print(ans[i]+" ");
-        }
+        System.out.println(minNumberRemovedToMakeAnagram(s1,s2));
     }
 }
