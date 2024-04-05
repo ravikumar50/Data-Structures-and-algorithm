@@ -696,7 +696,7 @@ public class Question {
         return dp[0][0];
     }
 
-    int LISlongestincreasingsequence(int arr[]) {  //  leetcode 300
+    static int LISlongestincreasingsequence(int arr[]) {  //  leetcode 300
         int n = arr.length;
         int dp[] = new int[n];
         dp[0] = 1;
