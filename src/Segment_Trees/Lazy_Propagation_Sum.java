@@ -1,6 +1,6 @@
 package Segment_Trees;
 
-public class Lazy_Propagation {
+public class Lazy_Propagation_Sum {
     static int ans[];
     static int lazy[];
     static int n;
