@@ -1,87 +1,100 @@
 
+import java.util.Scanner;
 
 public class Main {
-    static int ans[];
-    static int lazy[];
-    static int n;
 
+    static void display(char board[][]){
+        int n = board.length;
 
-    static void build_tree(int arr[], int low, int high, int idx){
+        for(int i=0; i<n; i++){
+            for(int j=0; j<n; j++){
+                System.out.print(board[i][j]+" ");
+            }
+            System.out.println();
+        }
 
-        if(low==high){
-            ans[idx] = arr[low];
+        System.out.println();
+    }
+
+    static boolean isSafe(char board[][], int row , int col){
+
+        int n = board.length;
+
+        // check row;
+
+        for(int j=0; j<n; j++){
+            if(board[row][j]=='Q') return false;
+        }
+
+        // check column
+
+        for(int i=0; i<n; i++){
+            if(board[i][col]=='Q') return false;
+        }
+
+        // check diagonal
+
+        //North-West
+
+        for(int i=row,j=col; i>=0 && j>=0; i--,j--){
+            if(board[i][j]=='Q') return false;
+        }
+
+        // South-East
+
+        for(int i=row,j=col; i<n && j<n; i++,j++){
+            if(board[i][j]=='Q') return false;
+        }
+
+        // South-West
+
+        for(int i=row,j=col; i<n && j>=0; i++,j--){
+            if(board[i][j]=='Q') return false;
+        }
+
+        // North-East
+
+        for(int i=row,j=col; i>=0 && j<n; i--,j++){
+            if(board[i][j]=='Q') return false;
+        }
+
+        return true;
+    }
+
+    static void Nqueens(char board[][], int row){
+        int n = board.length;
+
+        if(row==n){
+            ans++;
+            display(board);
             return;
         }
 
-        int mid = (low+high)/2;
-        build_tree(arr,low,mid,2*idx+1);
-        build_tree(arr,mid+1,high,2*idx+2);
-        ans[idx] = ans[2*idx+1]+ans[2*idx+2];
+        for(int j=0; j<n; j++){
+            if(isSafe(board,row,j)){
+                board[row][j]='Q';
+                Nqueens(board,row+1);
+                board[row][j]='.';
+            }
+        }
     }
 
-    static int range_query(int low, int high, int l, int r, int idx){
-
-        // pending lazy
-        if(lazy[idx]!=0){
-            int len = high-low+1;
-            ans[idx] = ans[idx]+(len*lazy[idx]);
-            if(low!=high){
-                // send lazy to left and right child
-                lazy[2*idx+1]+=lazy[idx];
-                lazy[2*idx+2]+=lazy[idx];
-            }
-            lazy[idx] = 0;
-        }
-
-        if(l>high || r<low) return 0;
-        if(l<=low && r>=high) return ans[idx];
-
-
-        int mid = (low+high)/2;
-        int a = range_query(low,mid,l,r,2*idx+1);
-        int b = range_query(mid+1,high,l,r,2*idx+2);
-        return a+b;
-    }
-
-    static void change_update(int low, int high, int l, int r, int val, int idx){
-        // pending lazy
-        if(lazy[idx]!=0){
-            int len = high-low+1;
-            ans[idx] = ans[idx]+(len*lazy[idx]);
-            if(low!=high){
-                // send lazy to left and right child
-                lazy[2*idx+1]+=lazy[idx];
-                lazy[2*idx+2]+=lazy[idx];
-            }
-            lazy[idx] = 0;
-        }
-
-        if(l>high || r<low) return;
-        if(l<=low && r>=high){
-            int len = high-low+1;
-            ans[idx] = ans[idx]+(val*len);
-            if(low!=high){
-                lazy[2*idx+1]+=val;
-                lazy[2*idx+2]+=val;
-            }
-            return;
-        }
-
-        int mid = (low+high)/2;
-        change_update(low,mid,l,r,val,2*idx+1);
-        change_update(mid+1,high,l,r,val,2*idx+2);
-        ans[idx] = ans[2*idx+1]+ans[2*idx+2];
-    }
+    static int ans;
 
 
     public static void main(String[] args) {
-        int arr[] = {1,4,2,8,6,4,9,3};
-        n = arr.length;
-        ans = new int[4*n];
-        lazy = new int[4*n];
-        build_tree(arr,0,n-1,0);
-        System.out.println(range_query(0,n-1,2,6,0));
-        change_update(0,n-1,2,5,10,0);
-        System.out.println(range_query(0,n-1,2,6,0));
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the number of Queens");
+        int n = sc.nextInt();
+        char board[][] = new char[n][n];
+
+        for(int i=0; i<n; i++){
+            for(int j=0; j<n; j++){
+                board[i][j]='.';
+            }
+        }
+        ans = 0;
+        Nqueens(board,0);
+        System.out.println("Total "+ans+" position Found");
     }
 }
