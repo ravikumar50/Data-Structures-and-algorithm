@@ -1,8 +1,10 @@
+package ChatSystemUsingTCP;
+
 import java.util.*;
 import java.net.*;
 import java.io.*;
 
-public class hack {
+public class LabServer {
 
 
     public static void main(String[] args) throws Exception {
@@ -29,9 +31,11 @@ public class hack {
 
             String s1 = ssInput1.readUTF();
             ssOutput2.writeUTF(s1);
+            if(s1.equals("Bye")) break;
 
             String s2 = ssInput2.readUTF();
             ssOutput1.writeUTF(s2);
+            if(s2.equals("Bye")) break;
 
         }
     }
