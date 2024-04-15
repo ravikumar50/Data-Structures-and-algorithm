@@ -9,7 +9,7 @@ public class ServersocketTCP {
     public static void main(String[] args) throws Exception  {
 
         System.out.println("Server has started");
-        ServerSocket ss = new ServerSocket(8888);
+        ServerSocket ss = new ServerSocket(8843);
         String str = "";
 
         while(true) {

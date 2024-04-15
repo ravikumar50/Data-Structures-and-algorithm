@@ -26,7 +26,7 @@ public class ClientSocketTCP {
 	    */
         String str = "";
         while(true){
-            Socket cs = new Socket("localhost",8888);
+            Socket cs = new Socket("localhost",8843);
 
             DataInputStream csInput = new DataInputStream(cs.getInputStream());
             DataOutputStream csOutput = new DataOutputStream(cs.getOutputStream());
