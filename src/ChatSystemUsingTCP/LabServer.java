@@ -9,7 +9,7 @@ public class LabServer {
 
     public static void main(String[] args) throws Exception {
         System.out.println("Server has started");
-        ServerSocket ss = new ServerSocket(8788);
+        ServerSocket ss = new ServerSocket(7654);
 
         Socket cs1 = ss.accept();
         System.out.println("Client 1 Connected");

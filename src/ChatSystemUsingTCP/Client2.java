@@ -8,7 +8,7 @@ public class Client2 {
     public static void main(String[] args) throws Exception{
         Scanner sc = new Scanner(System.in);
 
-        Socket cs = new Socket("localhost",8788);
+        Socket cs = new Socket("localhost",7654);
         DataInputStream csInput = new DataInputStream(cs.getInputStream());
         DataOutputStream csOutput = new DataOutputStream(cs.getOutputStream());
         while(true){
