@@ -1,7 +1,9 @@
+package Graph;
+
 import java.util.Scanner;
 import java.util.ArrayList;
 
-public class Main {
+public class Cut_Edge{
 
     static int par[];
     static int rank[];
