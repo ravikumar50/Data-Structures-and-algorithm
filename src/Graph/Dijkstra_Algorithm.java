@@ -44,6 +44,7 @@ public class Dijkstra_Algorithm {
         }
     }
 
+
     public static void main(String[] args) {
        // int edge[][] = {{0,1,1},{0,2,5},{1,2,4},{1,3,1},{2,4,1},{3,4,1},{3,6,2},{4,5,5},{6,5,1}};
         int edge[][] = {{0,1,1},{0,2,5},{1,2,13}};
